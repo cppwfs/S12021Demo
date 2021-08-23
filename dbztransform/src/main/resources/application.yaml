@@ -1,0 +1,9 @@
+spring:
+    cloud:
+        stream:
+            function:
+                definition: transform
+                bindings:
+                    transform-out-0: output
+                    transform-in-0: input
+

@@ -1,0 +1,25 @@
+type Plan {
+  planId: Int!,
+  planName: String,
+  dataPrice: Float,
+  callPrice: Float
+}
+
+type User {
+  id: Int!,
+  firstName: String,
+  lastName: String,
+  planId: Int
+}
+
+type Query {
+  users(count: Int):[User]
+  user(id: Int):User
+  plans(count: Int):[Plan]
+  plan(planIid: Int):Plan
+}
+
+type Mutation {
+  createUser(id: Int!, firstName: String, lastName: String, planId: Int):User
+  createPlan(planId: Int!, planName: String, dataPrice: Float, callPrice: Float):Plan
+}
