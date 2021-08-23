@@ -2,7 +2,6 @@
 
 Retrieves User, Plan, and Usage information from a repository and generates a bill flat file.
 
-
 == Requirements:
 
 * Java 8 or Above
@@ -13,3 +12,36 @@ Retrieves User, Plan, and Usage information from a repository and generates a bi
 ----
 $ ./mvnw clean install
 ----
+
+== Running the application.
+[source,shell,indent=2]
+----
+$ java -jar target/billrun-0.0.1-SNAPSHOT.jar
+----
+=== Input
+The application will read from the following tables:
+
+* users
+* plans
+* data_usage
+* call_usage
+
+==== DDL for the input tables (MYSql
+[source,sql,indent=2]
+----
+CREATE TABLE plans (plan_id INT, plan_name VARCHAR(20), data_price FLOAT(5,2), call_price FLOAT(5,2), PRIMARY KEY (plan_id));
+
+CREATE TABLE users (id INT, first_name VARCHAR(20), last_name VARCHAR(20), plan_id INT,
+PRIMARY KEY (id));
+
+CREATE TABLE data_usage (user_id INT, usage_in_bytes FLOAT(6,0), date DATETIME);
+CREATE TABLE call_usage (user_id INT, usage_in_minutes FLOAT(6,0), date DATETIME);
+----
+
+
+=== Output
+The output file will in the following format:
+`user_id,user_last_name,user_first_name,plan_id,plan_name, call_price, data_price, usage_in_minutes, usage_in_bytes, data_bill_amount, call_bill_amount, total_bill_amount`
+
+For example:
+`1,doe,jane,1,TEST,0.02,0.02,55.0,1000.0,20.0,1.1,21.1`

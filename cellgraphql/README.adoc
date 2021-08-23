@@ -1,0 +1,65 @@
+= Bill Run
+
+An application that utilizes GraphQL to query and update the user and plan information in a DataStore.
+
+== Requirements:
+
+* Java 8 or Above
+
+== Build Main Project:
+
+[source,shell,indent=2]
+----
+$ ./mvnw clean install -DskipTests
+----
+
+== Running the application.
+[source,shell,indent=2]
+----
+$ export spring_datasource_url=<Your DB url>
+$ export spring_datasource_username=<Your user name>
+$ export spring_datasource_password=<Your password>
+$ export spring_datasource_driverClassName=<Your driver clas name>
+$ java -jar target/cellgraphql-0.0.1-SNAPSHOT.jar
+----
+=== Tables supported
+The application can query and mutate rows from the following tables:
+
+* users
+* plans
+
+==== Querying
+You can use the graphiql tool to execute queries.   You can access graphiql UI vi this url:
+
+You can also execute queries via curl.   For example:
+Query to retrieve the first user id:
+[source,shell,indent=2]
+----
+curl -g \
+-X POST \
+-H "Content-Type: application/json" \
+-d '{"query":"query{users(count: 1){ id }}"}' \
+http://localhost:8080/graphql
+----
+Query to retrieve the first 7 plans:
+
+[source,shell,indent=2]
+----
+curl -g \
+-X POST \
+-H "Content-Type: application/json" \
+-d '{"query":"query{plans(count: 7){ planId, planName, dataPrice, callPrice }}"}' \
+http://localhost:8080/graphql
+----
+
+==== DDL for the tables (MYSql)
+[source,sql,indent=2]
+----
+CREATE TABLE plans (plan_id INT, plan_name VARCHAR(20), data_price FLOAT(5,2), call_price FLOAT(5,2), PRIMARY KEY (plan_id));
+
+CREATE TABLE users (id INT, first_name VARCHAR(20), last_name VARCHAR(20), plan_id INT,
+PRIMARY KEY (id));
+----
+
+
+

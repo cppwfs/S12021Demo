@@ -14,3 +14,32 @@ into format that can be used by the services used by the demonstration system.
 ----
 $ ./mvnw clean install
 ----
+
+== Running the application.
+[source,shell,indent=2]
+----
+$ export spring_cloud_stream_bindings_input_destination=<You topic>
+
+$ java -jar target/usagesink-0.0.1-SNAPSHOT.jar
+----
+=== Tables supported
+The following tables can be updated.
+
+* users
+* plans
+* data_usage
+* call_usage
+
+==== DDL for the tables (MYSql)
+[source,sql,indent=2]
+----
+CREATE TABLE plans (plan_id INT, plan_name VARCHAR(20), data_price FLOAT(5,2), call_price FLOAT(5,2), PRIMARY KEY (plan_id));
+
+CREATE TABLE users (id INT, first_name VARCHAR(20), last_name VARCHAR(20), plan_id INT,
+PRIMARY KEY (id));
+
+CREATE TABLE data_usage (user_id INT, usage_in_bytes FLOAT(6,0), date DATETIME);
+
+CREATE TABLE call_usage (user_id INT, usage_in_minutes FLOAT(6,0), date DATETIME);
+
+----

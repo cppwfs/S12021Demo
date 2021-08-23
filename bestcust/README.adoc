@@ -1,6 +1,6 @@
 = Best Customer Report
 
-Retrieves the billing information from the bill run report and generates another report
+Retrieves the billing information from the bill run file and generates another report
 that contains the information for the customers that have the highest bills.
 
 == Requirements:
@@ -13,3 +13,23 @@ that contains the information for the customers that have the highest bills.
 ----
 $ ./mvnw clean install
 ----
+
+== Running the application.
+[source,shell,indent=2]
+----
+$ java -jar target/billrun-0.0.1-SNAPSHOT.jar
+----
+
+=== Input
+The format of the input (billrun) csv file is in the following format:
+`user_id,user_last_name,user_first_name,plan_id,plan_name, call_price, data_price, usage_in_minutes, usage_in_bytes, data_bill_amount, call_bill_amount, total_bill_amount`
+
+For example:
+`1,doe,jane,1,TEST,0.02,0.02,55.0,1000.0,20.0,1.1,21.1`
+
+=== Output
+The output file will in the following format:
+`id,firstName,lastName,planId,totalBillAmount`
+
+For example:
+`2,doe,john,1,100.54`
