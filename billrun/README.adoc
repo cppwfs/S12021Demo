@@ -1,0 +1,15 @@
+= Bill Run
+
+Retrieves User, Plan, and Usage information from a repository and generates a bill flat file.
+
+
+== Requirements:
+
+* Java 8 or Above
+
+== Build Main Project:
+
+[source,shell,indent=2]
+----
+$ ./mvnw clean install
+----

@@ -1,0 +1,15 @@
+= Usage Sink
+
+Retrieves events from a Kafka topic and inserts these events into a data store
+that can be used by the services in the demonstration system.
+
+== Requirements:
+
+* Java 8 or Above
+
+== Build Main Project:
+
+[source,shell,indent=2]
+----
+$ ./mvnw clean install
+----

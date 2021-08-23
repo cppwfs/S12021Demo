@@ -1,0 +1,16 @@
+= DBZ Transform
+
+Retrieves Debezium database events from a Kafka topic and transforms these events
+into format that can be used by the services used by the demonstration system.
+
+
+== Requirements:
+
+* Java 8 or Above
+
+== Build Main Project:
+
+[source,shell,indent=2]
+----
+$ ./mvnw clean install
+----

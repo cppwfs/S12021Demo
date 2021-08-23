@@ -1,0 +1,15 @@
+= Best Customer Report
+
+Retrieves the billing information from the bill run report and generates another report
+that contains the information for the customers that have the highest bills.
+
+== Requirements:
+
+* Java 8 or Above
+
+== Build Main Project:
+
+[source,shell,indent=2]
+----
+$ ./mvnw clean install
+----
