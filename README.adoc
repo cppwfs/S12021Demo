@@ -1,0 +1,20 @@
+= Application Modernization Spring One 2021
+
+This repository contains the projects that were demoed during the Application Modernization breakout discussion.
+These projects are meant to provide a quick start for experimenting with various Spring Technologies.
+
+== Projects
+
+* DBZ Transform - Retrieves Debezium database events from a Kafka topic and transforms these events
+into format that can be used by the services used by the demonstration system.
+* Usage Sink - Retrieves events from a Kafka topic and inserts these events into a data store
+that can be used by the services in the demonstration system.
+* Bill Run - Retrieves User, Plan, and Usage information from a repository and generates a bill flat file.
+* Best Customer Report - Retrieves the billing information from the bill run file and generates another report
+that contains the information for the customers that have the highest bills.
+* Cell User And Plan GraphQL Application - An application that utilizes GraphQL to query and update the user and plan information in a DataStore.
+
+
+
+
+![Alt text](base.png?raw=true "Title")

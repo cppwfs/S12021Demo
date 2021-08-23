@@ -20,8 +20,8 @@ $ ./mvnw clean install
 $ export spring_datasource_url=<Your DB url>
 $ export spring_datasource_username=<Your user name>
 $ export spring_datasource_password=<Your password>
-$ export spring_datasource_driverClassName=<Your driver clas name>
-$ export spring_cloud_stream_bindings_input_destination=<You topic>
+$ export spring_datasource_driverClassName=<Your driver class name>
+$ export spring_cloud_stream_bindings_input_destination=<The input topic>
 
 $ java -jar target/usagesink-0.0.1-SNAPSHOT.jar
 ----

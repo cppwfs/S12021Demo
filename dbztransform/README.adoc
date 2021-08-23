@@ -18,8 +18,8 @@ $ ./mvnw clean install
 == Running the application.
 [source,shell,indent=2]
 ----
-$ export spring_cloud_stream_bindings_input_destination=<You topic>
-
+$ export spring_cloud_stream_bindings_input_destination=<The input topic>
+$ export spring_cloud_stream_bindings_output_destination=<The output topic>
 $ java -jar target/usagesink-0.0.1-SNAPSHOT.jar
 ----
 === Tables supported

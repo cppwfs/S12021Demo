@@ -1,4 +1,4 @@
-= Bill Run
+= Cell User And Plan GraphQL Application
 
 An application that utilizes GraphQL to query and update the user and plan information in a DataStore.
 
@@ -19,7 +19,7 @@ $ ./mvnw clean install -DskipTests
 $ export spring_datasource_url=<Your DB url>
 $ export spring_datasource_username=<Your user name>
 $ export spring_datasource_password=<Your password>
-$ export spring_datasource_driverClassName=<Your driver clas name>
+$ export spring_datasource_driverClassName=<Your driver class name>
 $ java -jar target/cellgraphql-0.0.1-SNAPSHOT.jar
 ----
 === Tables supported

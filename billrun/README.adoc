@@ -16,6 +16,10 @@ $ ./mvnw clean install
 == Running the application.
 [source,shell,indent=2]
 ----
+$ export spring_datasource_url=<Your DB url>
+$ export spring_datasource_username=<Your user name>
+$ export spring_datasource_password=<Your password>
+$ export spring_datasource_driverClassName=<Your driver class name>
 $ java -jar target/billrun-0.0.1-SNAPSHOT.jar
 ----
 === Input
@@ -26,7 +30,7 @@ The application will read from the following tables:
 * data_usage
 * call_usage
 
-==== DDL for the input tables (MYSql
+==== DDL for the input tables (MYSql)
 [source,sql,indent=2]
 ----
 CREATE TABLE plans (plan_id INT, plan_name VARCHAR(20), data_price FLOAT(5,2), call_price FLOAT(5,2), PRIMARY KEY (plan_id));
