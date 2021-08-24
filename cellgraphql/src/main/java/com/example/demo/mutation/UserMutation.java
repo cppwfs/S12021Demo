@@ -29,7 +29,7 @@ public class UserMutation implements GraphQLMutationResolver {
 	@Autowired
 	private UserService userService;
 
-	public User createUser(final int id, final String firstName, final String lastName, final int planId) {
-		return this.userService.createUser(id, firstName, lastName, planId);
+	public User createUser(final String firstName, final String lastName, final int planId) {
+		return this.userService.createUser(firstName, lastName, planId);
 	}
 }

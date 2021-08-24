@@ -29,7 +29,7 @@ public class PlanMutation implements GraphQLMutationResolver {
 	@Autowired
 	private PlanService planService;
 
-	public Plan createPlan(final int planId, final String planName, final double dataPrice, final double callPrice) {
-		return this.planService.createPlan(planId, planName, dataPrice, callPrice);
+	public Plan createPlan(final String planName, final double dataPrice, final double callPrice) {
+		return this.planService.createPlan(planName, dataPrice, callPrice);
 	}
 }

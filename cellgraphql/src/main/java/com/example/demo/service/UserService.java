@@ -35,8 +35,8 @@ public class UserService {
 	}
 
 	@Transactional
-	public User createUser(final int id, final String firstName, final String lastName, final int planId) {
-		final User user = new User(id, firstName, lastName, planId);
+	public User createUser(final String firstName, final String lastName, final int planId) {
+		final User user = new User(0, firstName, lastName, planId);
 		return this.userRepository.save(user);
 	}
 

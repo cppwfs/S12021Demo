@@ -37,8 +37,8 @@ public class PlanService {
 	}
 
 	@Transactional
-	public Plan createPlan(final int planId, final String planName, final double dataPrice, final double callPrice) {
-		final Plan plan = new Plan(planId, planName, dataPrice, callPrice);
+	public Plan createPlan(final String planName, final double dataPrice, final double callPrice) {
+		final Plan plan = new Plan(0, planName, dataPrice, callPrice);
 		return this.planRepository.save(plan);
 	}
 

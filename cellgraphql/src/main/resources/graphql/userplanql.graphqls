@@ -20,6 +20,6 @@ type Query {
 }
 
 type Mutation {
-  createUser(id: Int!, firstName: String, lastName: String, planId: Int):User
-  createPlan(planId: Int!, planName: String, dataPrice: Float, callPrice: Float):Plan
+  createUser(firstName: String, lastName: String, planId: Int):User
+  createPlan(planName: String, dataPrice: Float, callPrice: Float):Plan
 }
