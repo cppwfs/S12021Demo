@@ -91,7 +91,7 @@ public class BestCustomerConfiguration {
 
 		DelimitedLineTokenizer tokenizer = new DelimitedLineTokenizer();
 		tokenizer.setDelimiter(",");
-		tokenizer.setNames(new String[]{ "id", "firstName", "lastName", "planId", "planName", "callPrice", "dataPrice", "usageInMinutes", "usageInBytes", "dataBillAmount", "callBillAmount", "totalBillAmount" });
+		tokenizer.setNames(new String[]{ "id", "firstName", "lastName", "planId", "totalBillAmount" });
 
 		DefaultLineMapper lineMapper = new DefaultLineMapper<BillEntry>();
 		lineMapper.setLineTokenizer(tokenizer);

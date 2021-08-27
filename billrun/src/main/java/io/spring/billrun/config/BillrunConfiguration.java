@@ -60,7 +60,7 @@ public class BillrunConfiguration {
 	}
 
 	@Bean
-	public Job billRunJob(BillrunProperties properties, Step step) {
+	public Job billRunJob(Step step) {
 		return jobBuilderFactory
 				.get("billRunJob")
 				.incrementer(new RunIdIncrementer())
@@ -70,7 +70,7 @@ public class BillrunConfiguration {
 	}
 
 	@Bean
-	public Step step(BillrunProperties properties, ItemReader itemReader,
+	public Step step(ItemReader itemReader,
 			ItemProcessor itemProcessor,
 			ItemWriter itemWriter) {
 		return stepBuilderFactory.get("step1").<BillEntry, BillEntry>chunk(5)
@@ -81,7 +81,7 @@ public class BillrunConfiguration {
 	}
 
 	@Bean
-	public ItemReader<BillEntry> reader(BillrunProperties properties) {
+	public ItemReader<BillEntry> reader() {
 		return new JdbcCursorItemReaderBuilder<BillEntry>()
 				.dataSource(this.dataSource)
 				.name("creditReader")
@@ -111,7 +111,7 @@ public class BillrunConfiguration {
 				.encoding("UTF-16")
 				.saveState(false)
 				.shouldDeleteIfEmpty(true)
-				.append(true)
+				.append(false)
 				.forceSync(true)
 				.shouldDeleteIfEmpty(true)
 				.transactional(false)

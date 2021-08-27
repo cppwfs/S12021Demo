@@ -18,16 +18,27 @@ package io.spring.billrun.entity;
 
 public class BillEntry {
 	private int userId;
+
 	private String firstName;
+
 	private String lastName;
+
 	private int planId;
+
 	private String planName;
+
 	private double callPrice;
+
 	private double dataPrice;
+
 	private int usageInMinutes;
+
 	private int usageInBytes;
+
 	private double dataBillAmount;
+
 	private double callBillAmount;
+
 	private double totalBillAmount;
 
 	public int getUserId() {
