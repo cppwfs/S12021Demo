@@ -2,8 +2,11 @@ spring:
     cloud:
         stream:
             function:
-                definition: transform
+                definition: transform|filterFunction
                 bindings:
-                    transform-out-0: output
-                    transform-in-0: input
+                    transformfilterFunction-out-0: output
+                    transformfilterFunction-in-0: input
 
+filter:
+    function:
+        expression: headers[usage]=='true'

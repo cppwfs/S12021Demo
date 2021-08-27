@@ -32,19 +32,14 @@ public class DBUpdateApplication {
 	public Consumer<String> process() {
 		return  (payload) -> {
 			ObjectMapper objectMapper = new ObjectMapper();
-			JsonNode jsonNode = null;
-			if(payload == null || payload.equals("")) {
-				return;
-			}
+			JsonNode jsonNode;
 			try {
 				jsonNode = objectMapper.readTree(payload);
 			}
 			catch (JsonProcessingException e) {
-				System.out.println("REJECTING ==> " + payload);
+				e.printStackTrace();
 				return;
-				//throw new IllegalStateException(e);
 			}
-			String result = "";
 			String type = jsonNode.get("type").asText();
 			if(type.equals(Plan.PLAN_TYPE)) {
 				savePlan(payload);
@@ -62,14 +57,12 @@ public class DBUpdateApplication {
 	}
 
 	private void savePlan(String payload) {
-		System.out.println(">>>>>>>>> Plan  => " + payload);
 		ObjectMapper objectMapper = new ObjectMapper();
-		Plan plan = null;
+		Plan plan;
 		try {
 			plan = objectMapper.readValue(payload, Plan.class);
 		}
 		catch (JsonProcessingException e) {
-			System.out.println("FAILED**********" + e.getMessage());
 			e.printStackTrace();
 			return;
 		}
@@ -81,12 +74,11 @@ public class DBUpdateApplication {
 
 	private void saveUser(String payload) {
 		ObjectMapper objectMapper = new ObjectMapper();
-		User user = null;
+		User user;
 		try {
 			user = objectMapper.readValue(payload, User.class);
 		}
 		catch (JsonProcessingException e) {
-			System.out.println("FAILED**********" + e.getMessage());
 			e.printStackTrace();
 			return;
 		}
@@ -102,7 +94,6 @@ public class DBUpdateApplication {
 			callUsage = objectMapper.readValue(payload, CallUsage.class);
 		}
 		catch (JsonProcessingException e) {
-			System.out.println("FAILED**********" + e.getMessage());
 			e.printStackTrace();
 			return;
 		}
@@ -118,7 +109,6 @@ public class DBUpdateApplication {
 			dataUsage = objectMapper.readValue(payload, DataUsage.class);
 		}
 		catch (JsonProcessingException e) {
-			System.out.println("FAILED**********" + e.getMessage());
 			e.printStackTrace();
 			return;
 		}
