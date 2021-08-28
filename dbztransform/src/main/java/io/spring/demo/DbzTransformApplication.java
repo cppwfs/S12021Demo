@@ -34,11 +34,11 @@ import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.Message;
 
 @SpringBootApplication
-public class TaskFilterApplication {
+public class DbzTransformApplication {
 
 
 	public static void main(String[] args) {
-		SpringApplication.run(TaskFilterApplication.class, args);
+		SpringApplication.run(DbzTransformApplication.class, args);
 	}
 
 	@Bean
