@@ -65,7 +65,6 @@ public class BillrunConfiguration {
 				.get("billRunJob")
 				.incrementer(new RunIdIncrementer())
 				.start(step)
-				.incrementer(new RunIdIncrementer())
 				.build();
 	}
 
